@@ -1,0 +1,14 @@
+For legal reasons, the following modules have been completely removed
+from the Botan package in Fedora:
+
+ * Block Ciphers
+   * IDEA [src/block/idea]
+   * RC6 [src/block/rc6]
+   * RC5 [src/block/rc5]
+ * Public Key Base
+   * ECC Public Key [src/pubkey/ecc_key]
+   * ECC Domain Parameters [src/pubkey/ec_dompar]
+   * ECDSA [src/pubkey/ecdsa]
+   * ECKAEG [src/pubkey/eckaeg]
+ * Math
+   * GF(p) Math [src/math/gfpmath]

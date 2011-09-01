@@ -1,0 +1,12 @@
+============================================================
+--- configure.py        56ef9e873a4807c437f22b0ab58a22987e6ab2f9
++++ configure.py        3cdef18138198b63b180b200ea521140b161ffcc
+@@ -38,7 +38,7 @@ class BuildConfigurationInformation(obje
+     version_major = 1
+     version_minor = 8
+     version_patch = 13
+-    version_so_patch = 13
++    version_so_patch = 2
+     version_suffix = ''
+ 
+     version_string = '%d.%d.%d%s' % (
