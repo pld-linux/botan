@@ -118,9 +118,11 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-# not packaging shared lib properly, so no ldconfig needed
-#%post	-p /sbin/ldconfig
-#%postun	-p /sbin/ldconfig
+# NOTE: only update ld.so cache, there are no symlinks
+%post	-p /sbin/postshell
+/sbin/ldconfig -X
+%postun	-p /sbin/postshell
+/sbin/ldconfig -X
 
 %files
 %defattr(644,root,root,755)
