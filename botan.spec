@@ -7,7 +7,7 @@
 Summary:	Crypto library written in C++
 Name:		botan
 Version:	1.8.14
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 URL:		http://botan.randombit.net/
@@ -115,6 +115,8 @@ rm -rf $RPM_BUILD_ROOT
 	DOCDIR=_doc \
 	DESTDIR=$RPM_BUILD_ROOT%{_prefix}
 
+rm $RPM_BUILD_ROOT%{_bindir}/botan-config
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -133,7 +135,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/botan-config
 %{_includedir}/botan
 %{_libdir}/libbotan.so
 %{_pkgconfigdir}/botan-1.8.pc
