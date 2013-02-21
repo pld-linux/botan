@@ -1,10 +1,17 @@
+#
+# old_revision [adcf24b7e258c125f78aaff4ef2d3557f1183c3e]
+#
+# patch "configure.py"
+#  from [b43917e0e74e7ef1ff0024542da0dabe104a1582]
+#    to [ba82e657a585f31e9ba20056a57c5f597c0f0297]
+#
 ============================================================
---- configure.py        56ef9e873a4807c437f22b0ab58a22987e6ab2f9
-+++ configure.py        3cdef18138198b63b180b200ea521140b161ffcc
+--- configure.py	b43917e0e74e7ef1ff0024542da0dabe104a1582
++++ configure.py	ba82e657a585f31e9ba20056a57c5f597c0f0297
 @@ -38,7 +38,7 @@ class BuildConfigurationInformation(obje
      version_major = 1
      version_minor = 8
-     version_patch = 13
+     version_patch = 14
 -    version_so_patch = 13
 +    version_so_patch = 2
      version_suffix = ''

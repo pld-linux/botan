@@ -6,15 +6,15 @@
 
 Summary:	Crypto library written in C++
 Name:		botan
-Version:	1.8.13
+Version:	1.8.14
 Release:	1
 License:	BSD
 Group:		Libraries
 URL:		http://botan.randombit.net/
 # tarfile is stripped using repack.sh. original tarfile to be found
 # here: http://files.randombit.net/botan/Botan-%%{version}.tbz
-Source0:	http://pkgs.fedoraproject.org/repo/pkgs/botan/Botan-%{version}.stripped.tbz/e1cf4c2990a60867603fc111f0715e24/Botan-%{version}.stripped.tbz
-# Source0-md5:	e1cf4c2990a60867603fc111f0715e24
+Source0:	http://pkgs.fedoraproject.org/repo/pkgs/botan/Botan-%{version}.stripped.tbz/4b5ce78b1cfc0735eb7ec4f6903068ca/Botan-%{version}.stripped.tbz
+# Source0-md5:	4b5ce78b1cfc0735eb7ec4f6903068ca
 Source1:	README.fedora
 # soname was changed unintentionally upstream, revert it.
 Patch0:		soname.patch
