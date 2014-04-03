@@ -7,7 +7,7 @@
 Summary:	Crypto library written in C++
 Name:		botan
 Version:	1.8.14
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries
 URL:		http://botan.randombit.net/
@@ -64,6 +64,9 @@ Statyczna biblioteka botan.
 Summary:	botan API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki botan
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API and internal documentation for botan library.
