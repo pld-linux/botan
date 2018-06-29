@@ -1,0 +1,48 @@
+--- Botan-1.10.17/src/build-data/makefile/python.in.orig	2018-06-29 20:09:39.647157687 +0200
++++ Botan-1.10.17/src/build-data/makefile/python.in	2018-06-29 20:09:44.253824302 +0200
+@@ -3,11 +3,14 @@
+ LDFLAGS       =
+ WARN_FLAGS    = %{warn_flags}
+ 
++BOOST_PYTHON  = boost_python
++PY_VER        = %{python_version}
++
+ SERIES        = %{version_major}.%{version_minor}
+ 
+-PYTHON_ROOT = /usr/lib/python%{python_version}/config
+-PYTHON_INC = -I/usr/include/python%{python_version}
+-PYTHON_SITE_PACKAGE_DIR = /usr/lib/python%{python_version}/site-packages/
++PYTHON_ROOT = /usr/lib/python$(PY_VER)/config
++PYTHON_INC = -I/usr/include/python$(PY_VER)
++PYTHON_SITE_PACKAGE_DIR = /usr/lib/python$(PY_VER)/site-packages/
+ 
+ PYTHON_FLAGS = -I%{python_dir} -fPIC -ftemplate-depth-255 $(WARN_FLAGS) $(PYTHON_INC) $(CFLAGS)
+ 
+@@ -21,7 +24,7 @@
+ 
+ $(BOTAN_PYTHON_MODDIR)/_botan.so: $(PYTHON_OBJS)
+ 	cp %{python_dir}/*.py $(BOTAN_PYTHON_MODDIR)
+-	$(CXX) -shared -Wl,-soname,$@ $(PYTHON_OBJS) -L. -L$(PYTHON_ROOT) $(LDFLAGS) -lbotan-$(SERIES) -lboost_python -o $@
++	$(CXX) -shared -Wl,-soname,$@ $(PYTHON_OBJS) -L. -L$(PYTHON_ROOT) $(LDFLAGS) -lbotan-$(SERIES) -l$(BOOST_PYTHON) -o $@
+ 
+ clean:
+ 	rm -rf $(BOTAN_PYTHON_MODDIR)/*
+--- Botan-1.10.17/configure.py.orig	2017-10-02 08:00:00.000000000 +0200
++++ Botan-1.10.17/configure.py	2018-06-29 20:11:39.013822990 +0200
+@@ -98,7 +98,7 @@
+ 
+         self.doc_output_dir = os.path.join(self.build_dir, 'docs')
+ 
+-        self.pyobject_dir = os.path.join(self.build_dir, 'python')
++        self.pyobject_dir = os.path.join(self.build_dir, 'python$(PY_VER)')
+ 
+         self.include_dir = os.path.join(self.build_dir, 'include')
+         self.botan_include_dir = os.path.join(self.include_dir, 'botan')
+--- Botan-1.10.17/src/wrap/python/__init__.py.orig	2017-10-02 08:00:00.000000000 +0200
++++ Botan-1.10.17/src/wrap/python/__init__.py	2018-06-29 21:31:52.813768028 +0200
+@@ -1,4 +1,4 @@
+-from _botan import *
++from botan._botan import *
+ 
+ # Initialize the library when the module is imported
+ init = LibraryInitializer()

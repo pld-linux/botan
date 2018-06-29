@@ -1,0 +1,10 @@
+--- Botan-1.10.17/src/hash/gost_3411/gost_3411.cpp.orig	2017-10-02 08:00:00.000000000 +0200
++++ Botan-1.10.17/src/hash/gost_3411/gost_3411.cpp	2018-06-29 17:29:33.583934040 +0200
+@@ -5,6 +5,7 @@
+ * Distributed under the terms of the Botan license
+ */
+ 
++#include <stdint.h>
+ #include <botan/gost_3411.h>
+ #include <botan/loadstor.h>
+ #include <botan/rotate.h>
