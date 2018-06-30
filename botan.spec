@@ -1,3 +1,4 @@
+# NOTE: for botan 2.x see botan2.spec
 #
 # Conditional build:
 %bcond_without	tests		# unit tests
